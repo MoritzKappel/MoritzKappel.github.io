@@ -1,1 +1,227 @@
-<a href="https://graphics.tu-bs.de/people/kappel/">Current Webpage</a>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- metadata -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- page title -->
+    <title>Moritz Kappel | Home</title>
+    <!-- page icon -->
+    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="styles/w3_custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- scripts -->
+    <script src="scripts/utils.js"></script>
+</head>
+
+<!-- page style -->
+<style>
+
+    body {
+        font-family: Helvetica, sans-serif
+    }
+
+    .w3-row-padding img {
+        margin-bottom: 12px
+    }
+
+    /* Set the width of the sidebar to 120px */
+    .w3-sidebar {
+        width: 120px;
+        background: #181818;
+    }
+
+    .w3-bar {
+        background: #181818;
+    }
+
+    /* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+    #main {
+        margin-left: 120px;
+    }
+
+    #footer {
+        margin-left: 120px;
+        width: 92%;
+    }
+
+    /* Remove margins from "page content" on small screens */
+    @media only screen and (max-width: 600px) {
+        #main {
+            margin-left: 0;
+            margin-top: 60px;
+        }
+    }
+</style>
+
+<!-- page content -->
+
+<body class="w3-black">
+
+    <!-- Icon Bar (Sidebar) -->
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+        <!-- Avatar image in top left corner -->
+        <br>
+        <img src="resources/avatar.png" style="width:90%; border-radius: 50%">
+        <br><br>
+        <!-- Home -->
+        <button class="w3-bar-item w3-button w3-padding-large w3-hover-grey tab_button w3-black"
+            onclick="openTab(event, 'Home')">
+            <i class="fa fa-home w3-xxlarge"></i>
+            <p>HOME</p>
+        </button>
+        <!-- Projects -->
+        <button class="w3-bar-item w3-button w3-padding-large w3-hover-grey tab_button"
+            onclick="openTab(event, 'Projects')">
+            <i class="fa fa-laptop w3-xxlarge"></i>
+            <p>PROJECTS</p>
+        </button>
+        <!-- CV -->
+        <button class="w3-bar-item w3-button w3-padding-large w3-hover-grey tab_button"
+            onclick="openTab(event, 'Resume')">
+            <i class="fa fa-user w3-xxlarge"></i>
+            <p>RESUME</p>
+        </button>
+        <!-- Contact -->
+        <button class="w3-bar-item w3-button w3-padding-large w3-hover-grey tab_button"
+            onclick="openTab(event, 'Contact')">
+            <i class="fa fa-envelope w3-xxlarge"></i>
+            <p>CONTACT</p>
+        </button>
+    </nav>
+
+    <!-- Navbar (small screen only) -->
+    <nav class="w3-bar w3-top w3-hide-large w3-hide-medium w3-center w3-small">
+        <button class="w3-bar-item w3-button w3-hover-grey tab_button w3-black" style="width:25% !important"
+            onclick="openTab(event, 'Home')">
+            <p>HOME</p>
+        </button>
+        <button class="w3-bar-item w3-button  w3-hover-grey tab_button" style="width:25% !important"
+            onclick="openTab(event, 'Projects')">
+            <p>PROJECTS</p>
+        </button>
+        <button class="w3-bar-item w3-button  w3-hover-grey tab_button" style="width:25% !important"
+            onclick="openTab(event, 'Resume')">
+            <p>RESUME</p>
+        </button>
+        <button class="w3-bar-item w3-button w3-hover-grey tab_button" style="width:25% !important"
+            onclick="openTab(event, 'Contact')">
+            <p>CONTACT</p>
+        </button>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+        <!-- Home -->
+        <div id="Home" class="w3-container w3-padding-32 w3-center w3-black w3-animate-left tab_item">
+            <div class="w3-cell-row" style="width:100%">
+                <div class="w3-container w3-cell-top w3-left-align w3-padding-32 w3-black w3-cell" style="width:60%;">
+                    <header class="w3-container w3-left-align w3-black">
+                        <h1 style="font-size:4vw;">Moritz Kappel</h1>
+                        <i class="w3-text-light-grey" style="font-size:2vw;"> Computer Graphics Researcher</i>
+                        <hr style="width:60%" class="w3-opacity">
+                    </header>
+                    <br>
+                    <p class="w3-container w3-text-light-grey w3-left-align w3-padding-16 w3-black" style="font-size:1.5vw;">
+                        I received my M.Sc. degree in computer science with a special emphasis on visual
+                        computing in 2018 and am currently working toward his PhD degree at the Computer Graphics Lab, TU Braunschweig, Germany.
+                        My research interests include a combination of computer graphics and vision techniques for neural rendering as well as scene understanding and reconstruction.
+                    </p>    
+                </div>
+                <div class="w3-container w3-cell-top w3-left-align w3-padding-32 w3-black w3-cell w3-hide-small">
+                    <img src="resources/home.jpeg" style="width:100%;">
+                </div>
+            </div>
+        </div>
+        <!-- Projects -->
+        <div id="Projects" class="w3-container w3-padding-32 w3-center w3-green w3-animate-left tab_item"
+            style="display:none">
+            <h2>Projects</h2>
+            <i>Coming soons</i>
+        </div>
+        <!-- CV -->
+        <div id="Resume" class="w3-container w3-padding-16 w3-centered w3-black w3-animate-left tab_item"
+            style="display:none;width:95%;margin:auto;">
+            <div class="w3-container w3-padding-8 w3-center w3-black" style="width:100%;">
+                <h1 class="w3-left-align" style="font-size:3vw;"><i>Curriculum Vitae</i></h1>
+                <hr class="w3-center", style="width:35%;margin-top:0">
+            </div>
+            <div class="w3-cell-row" style="width:100%">
+                <div class="w3-container w3-left-align w3-padding-32 w3-black w3-cell w3-mobile"  style="width:50%;">
+                    <h1 class="w3-text-green" style="font-size:1.8vw;"> Positions</h1>
+                    <ul style="font-size:1.1vw;">
+                        <li>February 2019 - present: <b>Research Scientist</b><br>
+                            Institute for Computer Graphics, TU Braunschweig, Germany
+                        </li>
+                        <li>May 2016 - July 2016: <b>Student Research Assistant</b><br>
+                            Institute for Computer Graphics, TU Braunschweig, Germany
+                        </li>
+                    </ul>
+                    <h1 class="w3-text-green" style="font-size:1.8vw;"> Education</h1>
+                    <ul style="font-size:1.1vw;">
+                        <li>February 2019 - present: <b>PhD Student</b><br>
+                            <i style="font-size:1.0vw;">Under the supervision of Prof. Dr.-Ing. Marcus Magnor</i><br>
+                            Institute for Computer Graphics, TU Braunschweig, Germany
+                        </li>
+                        <li>November 2018: <b>M.Sc. in Computer Science</b><br>
+                            <i style="font-size:1.0vw;">Master thesis: "Learning Optical Flow from Long-Exposure Images"</i><br>
+                            TU Braunschweig, Germany
+                        </li>
+                        <li>May 2016: <b>B.Sc. in Computer Science</b><br>
+                            <i style="font-size:1.0vw;">Bachelor thesis: "Dense Image-Correspondences for Reflecting Surfaces"</i><br>
+                            TU Braunschweig, Germany
+                        </li>
+                        <li>July 2012: <b>Abitur</b><br>
+                            Friedrich-Ebert-Gymnasium<br>
+                            Bonn, Germany
+                        </li>
+                    </ul>
+                </div>
+                <div class="w3-container w3-padding-32 w3-text-green w3-black w3-cell w3-mobile" style="width:50%;">
+                    <h1 style="font-size:1.8vw;">Download detailed CV here: <a
+                        href="resources/CV_Kappel.pdf" download target="_blank"
+                        class="w3-hover-opacity"><i class="fa fa-file-pdf-o w3-xxlarge"></i></a></h1>
+                    <iframe src="resources/CV_Kappel.pdf" frameborder="0" style="width:65%;aspect-ratio:0.75;"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- Contact -->
+        <div id="Contact" class="w3-container w3-padding-32 w3-centered w3-black w3-animate-left tab_item"
+            style="display:none;width:90%;margin:auto;">
+            <div class="w3-cell-row" style="width:100%">
+                <div class="w3-container w3-cell w3-cell-top w3-padding-32 w3-text-grey w3-black" style="width:60%;">
+                    <h2 class="w3-text-light-grey" style="font-size:2vw;"> Contact Me</h2>
+                    <hr style="width:30%" class="w3-opacity">
+                    <div class="w3-section w3-left-align" style="font-size:1.4vw;">
+                        <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Braunschweig, Germany</p>
+                        <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +49 (0)531 391 2121</p>
+                        <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: kappel@cg.cs.tu-bs.de</p>
+                    </div>
+                    <br>
+                    <h2 class="w3-text-light-grey" style="font-size:2vw;">Find Me On Other Platforms</h2>
+                    <hr style="width:30%" class="w3-opacity">
+                    <div class="w3-section w3-left-align" style="font-size:1.4vw;">
+                        <p><a href="https://graphics.tu-bs.de/people/kappel"><i class="fa fa-briefcase fa-fw w3-hover-opacity w3-text-white w3-xxlarge w3-margin-right"></i></a> Professional Webpage</p>
+                        <p><a href="https://github.com/MoritzKappel"><i class="fa fa-github fa-fw w3-hover-opacity w3-text-white w3-xxlarge w3-margin-right"></i></a> Github: MoritzKappel</p>
+                        <p><a href="https://scholar.google.de/citations?user=fQeqf8MAAAAJ"><i class="fa fa-google fa-fw w3-hover-opacity w3-text-white w3-xxlarge w3-margin-right"></i></a> Google Scholar: Moritz Kappel</p>
+                    </div>
+                </div>
+                <div class="w3-container w3-padding-32 w3-cell-middle w3-cell w3-left-align w3-black">
+                    <img class="w3-hide-small" src="resources/contact.jpeg" style="width:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="w3-bar w3-bottom w3-center w3-black w3-padding-8 w3-opacity w3-hover-opacity-off w3-hide-small w3-text-grey", id="footer">
+        <hr class="w3-center", style="width:60%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;padding-top:0;">
+        <i> Copyright Moritz Kappel, 2023. Powered by <a
+            href="https://www.w3schools.com/w3css/default.asp" target="_blank"
+            class="w3-hover-text-green">w3.css</a>.</i>
+    </footer>
+</body>
+
+</html>
