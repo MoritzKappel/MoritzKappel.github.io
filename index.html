@@ -95,19 +95,19 @@
 
     <!-- Navbar (small screen only) -->
     <nav class="w3-bar w3-top w3-hide-large w3-hide-medium w3-center w3-small">
-        <button class="w3-bar-item w3-button w3-hover-grey tab_button w3-black" style="width:25% !important"
+        <button class="w3-bar-item w3-button w3-hover-dark-grey tab_button w3-black" style="width:25% !important"
             onclick="openTab(event, 'Home')">
             <p>HOME</p>
         </button>
-        <button class="w3-bar-item w3-button  w3-hover-grey tab_button" style="width:25% !important"
+        <button class="w3-bar-item w3-button w3-hover-dark-grey tab_button" style="width:25% !important"
             onclick="openTab(event, 'Projects')">
             <p>PROJECTS</p>
         </button>
-        <button class="w3-bar-item w3-button  w3-hover-grey tab_button" style="width:25% !important"
+        <button class="w3-bar-item w3-button w3-hover-dark-grey tab_button" style="width:25% !important"
             onclick="openTab(event, 'Resume')">
             <p>RESUME</p>
         </button>
-        <button class="w3-bar-item w3-button w3-hover-grey tab_button" style="width:25% !important"
+        <button class="w3-bar-item w3-button w3-hover-dark-grey tab_button" style="width:25% !important"
             onclick="openTab(event, 'Contact')">
             <p>CONTACT</p>
         </button>
@@ -118,41 +118,93 @@
         <!-- Home -->
         <div id="Home" class="w3-container w3-padding-32 w3-center w3-black w3-animate-left tab_item">
             <div class="w3-cell-row" style="width:100%">
-                <div class="w3-container w3-cell-top w3-left-align w3-padding-32 w3-black w3-cell" style="width:60%;">
+                <div class="w3-container w3-cell-top w3-left-align w3-padding-32 w3-black w3-cell w3-twothird">
                     <header class="w3-container w3-left-align w3-black">
-                        <h1 style="font-size:4vw;">Moritz Kappel</h1>
-                        <i class="w3-text-light-grey" style="font-size:2vw;"> Computer Graphics Researcher</i>
+                        <h1 class="w3-jumbo">Moritz Kappel</h1>
+                        <i class="w3-xxlarge w3-text-light-grey"> Computer Graphics Researcher</i>
                         <hr style="width:60%" class="w3-opacity">
                     </header>
                     <br>
-                    <p class="w3-container w3-text-light-grey w3-left-align w3-padding-16 w3-black" style="font-size:1.5vw;">
-                        I received my M.Sc. degree in computer science with a special emphasis on visual
-                        computing in 2018 and am currently working toward his PhD degree at the Computer Graphics Lab, TU Braunschweig, Germany.
-                        My research interests include a combination of computer graphics and vision techniques for neural rendering as well as scene understanding and reconstruction.
+                    <p class="w3-container w3-xlarge w3-text-light-grey w3-left-align w3-padding-16 w3-black">
+                        I am a research scientist and PhD student at the Computer Graphics Lab, TU Braunschweig, Germany.
+                        My research interests include computer graphics and vision techniques for neural rendering as well as scene understanding and reconstruction.
                     </p>    
                 </div>
-                <div class="w3-container w3-cell-top w3-left-align w3-padding-32 w3-black w3-cell w3-hide-small">
+                <div class="w3-container w3-cell-top w3-left-align w3-padding-32 w3-black w3-cell w3-hide-small w3-third">
                     <img src="resources/home.jpeg" style="width:100%;">
                 </div>
             </div>
         </div>
         <!-- Projects -->
-        <div id="Projects" class="w3-container w3-padding-32 w3-center w3-green w3-animate-left tab_item"
-            style="display:none">
-            <h2>Projects</h2>
-            <i>Coming soons</i>
+        <div id="Projects" class="w3-container w3-padding-32 w3-center w3-black w3-animate-left tab_item"
+            style="display:none;width:95%;margin:auto;">
+            <div class="w3-container w3-padding-32 w3-center w3-black" style="width:100%;">
+                <h1 class="w3-left-align w3-xxxlarge"><i>Projects</i></h1>
+                <hr class="w3-center" style="width:30%;margin-top:0">
+            </div>
+            <!-- hfnhmt -->
+            <div class="w3-cell-row" style="width:100%;">
+                <div class="w3-container w3-center w3-black w3-cell w3-cell-middle w3-hide-small" style="width:18%;">
+                    <img class="w3-hide-small w3-left w3-padding-32" src="resources/projects/monerf.png" style="width:100%;">
+                </div>
+                <div class="w3-container w3-padding-16  w3-center w3-black w3-cell w3-cell-top w3-rest">
+                    <p class="w3-xlarge w3-left-align"><b>Fast Non-Rigid Radiance Fields from Monocularized Data</b></p>
+                    <p class="w3-large w3-left-align w3-text-blue">
+                        <a href="index.html"><b>Moritz Kappel</b></a>, 
+                        <a href="https://people.mpi-inf.mpg.de/~golyanik/">Vladislav Golyanik</a>,
+                        <a href="https://graphics.tu-bs.de/people/castillo">Susana Castillo</a>,<br>
+                        <a href="https://people.mpi-inf.mpg.de/~theobalt/">Christian Theobalt</a>,
+                        <a href="https://graphics.tu-bs.de/people/magnor">Marcus Magnor</a>
+                    </p>
+                    <p class="w3-large w3-left-align">
+                        arXiv preprint
+                    </p>
+                    <p class="w3-large w3-left-align w3-text-blue">
+                        <a href="https://arxiv.org/abs/2212.01368 ">[arXiv]</a>
+                    </p>
+                </div> 
+            </div> 
+            <!-- hfnhmt -->
+            <div class="w3-cell-row" style="width:100%;">
+                <div class="w3-container w3-center w3-black w3-cell w3-cell-middle w3-hide-small" style="width:18%;">
+                    <img class="w3-hide-small w3-left w3-padding-32" src="resources/projects/nhmt.png" style="width:100%;">
+                </div>
+                <div class="w3-container w3-padding-16  w3-center w3-black w3-cell w3-cell-top w3-rest">
+                    <p class="w3-xlarge w3-left-align"><b>High-Fidelity Neural Human Motion Transfer from Monocular Video</b></p>
+                    <p class="w3-large w3-left-align w3-text-blue">
+                        <a href="index.html"><b>Moritz Kappel</b></a>, 
+                        <a href="https://people.mpi-inf.mpg.de/~golyanik/">Vladislav Golyanik</a>,
+                        <a href="https://people.mpi-inf.mpg.de/~elgharib/">Mohamed Elgharib</a>,
+                        <a href="https://www.lgdv.tf.fau.de/person/jann-ole-henningson/">Jann-Ole Henningson</a>,
+                        <a href="https://people.mpi-inf.mpg.de/~hpseidel/">Hans-Peter Seidel</a>,
+                        <a href="https://graphics.tu-bs.de/people/castillo">Susana Castillo</a>,<br>
+                        <a href="https://people.mpi-inf.mpg.de/~theobalt/">Christian Theobalt</a>,
+                        <a href="https://graphics.tu-bs.de/people/magnor">Marcus Magnor</a>
+                    </p>
+                    <p class="w3-large w3-left-align">
+                        IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2021
+                    </p>
+                    <p class="w3-large w3-left-align w3-text-blue">
+                        <a href="https://graphics.tu-bs.de/upload/publications/kappel2020NHMT/Kappel_NHMT.pdf">[paper]</a>&nbsp
+                        <a href="https://www.youtube.com/watch?v=14VaWFVeKy4">[video]</a>&nbsp
+                        <a href="https://graphics.tu-bs.de/publications/kappel2020high-fidelity">[project page]</a>&nbsp
+                        <a href="https://github.com/MoritzKappel/HF-NHMT">[code]</a>&nbsp
+                        <a href="https://nextcloud.mpi-klsb.mpg.de/index.php/s/jb42tJr4oiZQXzS">[data]</a>
+                    </p>
+                </div> 
+            </div> 
         </div>
         <!-- CV -->
         <div id="Resume" class="w3-container w3-padding-16 w3-centered w3-black w3-animate-left tab_item"
             style="display:none;width:95%;margin:auto;">
             <div class="w3-container w3-padding-8 w3-center w3-black" style="width:100%;">
-                <h1 class="w3-left-align" style="font-size:3vw;"><i>Curriculum Vitae</i></h1>
+                <h1 class="w3-left-align w3-xxxlarge"><i>Curriculum Vitae</i></h1>
                 <hr class="w3-center", style="width:35%;margin-top:0">
             </div>
             <div class="w3-cell-row" style="width:100%">
-                <div class="w3-container w3-left-align w3-padding-32 w3-black w3-cell w3-mobile"  style="width:50%;">
-                    <h1 class="w3-text-green" style="font-size:1.8vw;"> Positions</h1>
-                    <ul style="font-size:1.1vw;">
+                <div class="w3-container w3-left-align w3-padding-32 w3-black w3-cell w3-mobile w3-half">
+                    <h1 class="w3-text-green w3-xxlarge"> Positions</h1>
+                    <ul class="w3-large">
                         <li>February 2019 - present: <b>Research Scientist</b><br>
                             Institute for Computer Graphics, TU Braunschweig, Germany
                         </li>
@@ -160,18 +212,18 @@
                             Institute for Computer Graphics, TU Braunschweig, Germany
                         </li>
                     </ul>
-                    <h1 class="w3-text-green" style="font-size:1.8vw;"> Education</h1>
-                    <ul style="font-size:1.1vw;">
+                    <h1 class="w3-text-green w3-xxlarge"> Education</h1>
+                    <ul class="w3-large">
                         <li>February 2019 - present: <b>PhD Student</b><br>
-                            <i style="font-size:1.0vw;">Under the supervision of Prof. Dr.-Ing. Marcus Magnor</i><br>
+                            <i class="w3-medium">Under the supervision of Prof. Dr.-Ing. Marcus Magnor</i><br>
                             Institute for Computer Graphics, TU Braunschweig, Germany
                         </li>
                         <li>November 2018: <b>M.Sc. in Computer Science</b><br>
-                            <i style="font-size:1.0vw;">Master thesis: "Learning Optical Flow from Long-Exposure Images"</i><br>
+                            <i class="w3-medium">Master thesis: "Learning Optical Flow from Long-Exposure Images"</i><br>
                             TU Braunschweig, Germany
                         </li>
                         <li>May 2016: <b>B.Sc. in Computer Science</b><br>
-                            <i style="font-size:1.0vw;">Bachelor thesis: "Dense Image-Correspondences for Reflecting Surfaces"</i><br>
+                            <i class="w3-medium">Bachelor thesis: "Dense Image-Correspondences for Reflecting Surfaces"</i><br>
                             TU Braunschweig, Germany
                         </li>
                         <li>July 2012: <b>Abitur</b><br>
@@ -180,11 +232,11 @@
                         </li>
                     </ul>
                 </div>
-                <div class="w3-container w3-padding-32 w3-text-green w3-black w3-cell w3-mobile" style="width:50%;">
-                    <h1 style="font-size:1.8vw;">Download detailed CV here: <a
+                <div class="w3-container w3-padding-32 w3-text-green w3-black w3-cell w3-mobile w3-half">
+                    <h1 class="w3-xxlarge">Download detailed CV here: <a
                         href="resources/CV_Kappel.pdf" download target="_blank"
                         class="w3-hover-opacity"><i class="fa fa-file-pdf-o w3-xxlarge"></i></a></h1>
-                    <iframe src="resources/CV_Kappel.pdf" frameborder="0" style="width:65%;aspect-ratio:0.75;"></iframe>
+                    <iframe class="w3-hide-small" src="resources/CV_Kappel.pdf" frameborder="0" style="width:65%;aspect-ratio:0.75;"></iframe>
                 </div>
             </div>
         </div>
@@ -192,25 +244,25 @@
         <div id="Contact" class="w3-container w3-padding-32 w3-centered w3-black w3-animate-left tab_item"
             style="display:none;width:90%;margin:auto;">
             <div class="w3-cell-row" style="width:100%">
-                <div class="w3-container w3-cell w3-cell-top w3-padding-32 w3-text-grey w3-black" style="width:60%;">
-                    <h2 class="w3-text-light-grey" style="font-size:2vw;"> Contact Me</h2>
+                <div class="w3-container w3-cell w3-cell-middle w3-padding-64 w3-text-grey w3-black w3-half">
+                    <h2 class="w3-text-light-grey" > Contact Me</h2>
                     <hr style="width:30%" class="w3-opacity">
-                    <div class="w3-section w3-left-align" style="font-size:1.4vw;">
+                    <div class="w3-section w3-left-align" >
                         <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Braunschweig, Germany</p>
                         <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +49 (0)531 391 2121</p>
                         <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: kappel@cg.cs.tu-bs.de</p>
                     </div>
                     <br>
-                    <h2 class="w3-text-light-grey" style="font-size:2vw;">Find Me On Other Platforms</h2>
+                    <h2 class="w3-text-light-grey" >Find Me On Other Platforms</h2>
                     <hr style="width:30%" class="w3-opacity">
-                    <div class="w3-section w3-left-align" style="font-size:1.4vw;">
+                    <div class="w3-section w3-left-align" >
                         <p><a href="https://graphics.tu-bs.de/people/kappel"><i class="fa fa-briefcase fa-fw w3-hover-opacity w3-text-white w3-xxlarge w3-margin-right"></i></a> Professional Webpage</p>
                         <p><a href="https://github.com/MoritzKappel"><i class="fa fa-github fa-fw w3-hover-opacity w3-text-white w3-xxlarge w3-margin-right"></i></a> Github: MoritzKappel</p>
                         <p><a href="https://scholar.google.de/citations?user=fQeqf8MAAAAJ"><i class="fa fa-google fa-fw w3-hover-opacity w3-text-white w3-xxlarge w3-margin-right"></i></a> Google Scholar: Moritz Kappel</p>
                     </div>
                 </div>
-                <div class="w3-container w3-padding-32 w3-cell-middle w3-cell w3-left-align w3-black">
-                    <img class="w3-hide-small" src="resources/contact.jpeg" style="width:100%;">
+                <div class="w3-container w3-padding-32 w3-cell-middle w3-cell w3-left-align w3-black w3-half">
+                    <img class="w3-hide-small" src="resources/contact.jpeg" style="width:80%;">
                 </div>
             </div>
         </div>
@@ -218,7 +270,7 @@
     <!-- Footer -->
     <footer class="w3-bar w3-bottom w3-center w3-black w3-padding-8 w3-opacity w3-hover-opacity-off w3-hide-small w3-text-grey", id="footer">
         <hr class="w3-center", style="width:60%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;padding-top:0;">
-        <i> Copyright Moritz Kappel, 2023. Powered by <a
+        <i> Copyright 2023 by Moritz Kappel. Powered by <a
             href="https://www.w3schools.com/w3css/default.asp" target="_blank"
             class="w3-hover-text-green">w3.css</a>.</i>
     </footer>
