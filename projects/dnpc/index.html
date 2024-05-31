@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>D&ndash;NPC: Dynamic Neural Point Clouds</title>
+
+    <meta name="description" content="Dynamic Neural Point Clouds for Non-Rigid View Synthesis from Monocular Video."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:image" content="https://moritzkappel.github.io/projects/dnpc/assets/dnpc_pipeline_og.jpg">
+    <meta property="og:image:type" content="image/jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="D&ndash;NPC: Dynamic Neural Point Clouds for Non-Rigid View Synthesis from Monocular Video"/>
+    <meta property="og:description" content="Dynamic Neural Point Clouds for Non-Rigid View Synthesis from Monocular Video."/>
+
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="https://moritzkappel.github.io/projects/dnpc/"/>
+    <meta name="twitter:title" content="D&ndash;NPC: Dynamic Neural Point Clouds for Non-Rigid View Synthesis from Monocular Video"/>
+    <meta name="twitter:description" content="Dynamic implicit point clouds enable fast optimization and real-time frame rates for monocular view synthesis."/>
+    <meta name="twitter:image" content="https://moritzkappel.github.io/projects/dnpc/assets/dnpc_pipeline_tw.jpg"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+    <link rel="icon" href="assets/favicon/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicon/site.webmanifest">
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"/>
+</head>
+
+<body>
+<div class="container" id="main">
+
+    <!-- <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <hr>
+            <img src="assets/teaser.jpg" style="width:100%">
+        </div>
+    </div> -->
+
+    <div class="row">
+        <h2 class="col-md-12 text-center">
+            <b>D&ndash;NPC</b>: Dynamic Neural Point Clouds <br> for
+            Non-Rigid View Synthesis from Monocular Video<br>
+            <small>
+                arXiv
+            </small>
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <ul class="list-inline">
+                <li>
+                    <a style="text-decoration:none" href="https://moritzkappel.github.io">Moritz Kappel</a>
+                    <br>TU Braunschweig
+                </li>
+                <li>
+                    <a style="text-decoration:none" href="https://fhahlbohm.github.io">Florian Hahlbohm</a>
+                    <br>TU Braunschweig
+                </li>
+                <li>
+                    <a style="text-decoration:none" href="https://graphics.tu-bs.de/people/scholz-timon">Timon Scholz</a>
+                    <br>TU Braunschweig
+                </li>
+                <li>
+                    <a style="text-decoration:none" href="https://graphics.tu-bs.de/people/castillo">Susana Castillo</a>
+                    <br>TU Braunschweig
+                </li>
+                <br>
+                <li>
+                    <a style="text-decoration:none" href="https://people.mpi-inf.mpg.de/~theobalt/">Christian Theobalt</a>
+                    <br>MPI for Informatics
+                </li>
+                <li>
+                    <a style="text-decoration:none" href="https://graphics.tu-bs.de/people/eisemann">Martin Eisemann</a>
+                    <br>TU Braunschweig
+                </li>
+                <li>
+                    <a style="text-decoration:none" href="https://people.mpi-inf.mpg.de/~golyanik/">Vladislav Golyanik</a>
+                    <br>MPI for Informatics
+                </li>
+                <li>
+                    <a style="text-decoration:none" href="https://graphics.tu-bs.de/people/magnor">Marcus Magnor</a>
+                    <br>TU Braunschweig
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 text-center">
+            <ul class="nav nav-pills nav-justified nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://arxiv.org/">
+                        <img src="assets/dnpc_paper_preview.jpg" height="60px" style="border: 1px solid black;">
+                        <h4><strong>Paper<br>(Coming Soon)</strong></h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://youtu.be/oO9in569dcc?si=FT66U8MZBRSoKQ05o">
+                        <img src="assets/youtube_icon.png" height="60px">
+                        <h4><strong>Video</strong></h4>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/moritzkappel/">
+                        <img src="assets/github.png" height="60px">
+                        <h4><strong>Code<br>(Coming Soon)</strong></h4>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 text-center">
+            <video id="v4" width="100%" autoplay loop muted>
+                <source src="assets/interactive_gui.mp4" type="video/mp4"/>
+            </video>
+            <p>
+                Interactive live demo captured from our GUI at Full HD resolution.
+            </p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Abstract</h3>
+            <hr>
+            <p class="text-justify">
+                Dynamic reconstruction and spatiotemporal novel-view synthesis of non-rigidly
+                deforming scenes recently gained increased attention. While existing work achieves
+                impressive quality and performance on multi-view or teleporting camera setups,
+                most methods fail to efficiently and faithfully recover motion and appearance from
+                casual monocular captures. This paper contributes to the field by introducing a new
+                method for dynamic novel view synthesis from monocular video, such as casual
+                smartphone captures. Our approach represents the scene as a dynamic neural
+                point cloud, an implicit time-conditioned point distribution that encodes local
+                geometry and appearance in separate hash-encoded neural feature grids for static
+                and dynamic regions. By sampling a discrete point cloud from our model, we can
+                efficiently render high-quality novel views using a fast differentiable rasterizer and
+                neural rendering network. Similar to recent work, we leverage advances in neural
+                scene analysis by incorporating data-driven priors like monocular depth estimation
+                and object segmentation to resolve motion and depth ambiguities originating from
+                the monocular captures. In addition to guiding the optimization process, we show
+                that these priors can be exploited to explicitly initialize our scene representation to
+                drastically improve optimization speed and final image quality. As evidenced by
+                our experimental evaluation, our dynamic point cloud model not only enables fast
+                optimization and real-time frame rates for interactive applications, but also achieves
+                competitive image quality on monocular benchmark sequences.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Method</h3>
+            <hr>
+            <img src="assets/dnpc_pipeline_full.png" style="width:100%">
+            <p class="text-justify">
+                <br>
+                Given a monocular input RGB video we extract monocular depth, binary foreground segmentation and optical flow from out-of-the-
+                box estimators to initialize and optimize a dynamic implicit neural point cloud. Our model consists of a
+                spatiotemporal point position distribution and two feature grids for static and dynamic scene content.
+                By sampling an explicit point cloud for a discrete timestamp, our model can synthesize novel views,
+                including foreground/background separation, using a differentiable rasterizer and neural renderer.
+                <br>
+            </p>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Results</h3>
+            <hr>
+            <div id="results-carousel" class="carousel slide" data-ride="carousel" data-interval=18000>
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#results-carousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#results-carousel" data-slide-to="1"></li>
+                  <li data-target="#results-carousel" data-slide-to="2"></li>
+                  <li data-target="#results-carousel" data-slide-to="3"></li>
+                  <li data-target="#results-carousel" data-slide-to="4"></li>
+                </ol>
+  
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                      <div class="row text-center">
+                          <div class="col-md-4">
+                              <video id="r00"  width="90%" autoplay loop muted>
+                                  <source src="assets/results_carousel/r00000.mp4" type="video/mp4"/>
+                              </video>
+                          </div>
+                          <div class="col-md-4">
+                            <video id="r01" width="90%" autoplay loop muted>
+                                <source src="assets/results_carousel/r00001.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                          <div class="col-md-4">
+                              <video id="r02" width="90%" autoplay loop muted>
+                                  <source src="assets/results_carousel/r00003.mp4" type="video/mp4"/>
+                              </video>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="item">
+                    <div class="row text-center">
+                        <div class="col-md-4">
+                            <video id="r03"  width="90%" autoplay loop muted>
+                                <source src="assets/results_carousel/r00004.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                        <div class="col-md-4">
+                          <video id="r04" width="90%" autoplay loop muted>
+                              <source src="assets/results_carousel/r00005.mp4" type="video/mp4"/>
+                          </video>
+                      </div>
+                        <div class="col-md-4">
+                            <video id="r05" width="90%" autoplay loop muted>
+                                <source src="assets/results_carousel/r00006.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row text-center">
+                        <div class="col-md-8 col-md-offset-2">
+                            <video id="r06" width="100%" autoplay loop muted>
+                                <source src="assets/results_carousel/r00002.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row text-center">
+                        <div class="col-md-8 col-md-offset-2">
+                            <video id="r07" width="100%" autoplay loop muted>
+                                <source src="assets/results_carousel/r00007.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row text-center">
+                        <div class="col-md-8 col-md-offset-2">
+                            <video id="r08" width="100%" autoplay loop muted>
+                                <source src="assets/results_carousel/r00008.mp4" type="video/mp4"/>
+                            </video>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Controls -->
+                <a class="left carousel-control" style="background-image: none; width: 5%;" href="#results-carousel" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" style="background-image: none; width: 5%;" href="#results-carousel" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Comparisons</h3>
+            <hr>
+            <div id="comparison-carousel" class="carousel slide" data-ride="carousel" data-interval=18000>
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#comparison-carousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#comparison-carousel" data-slide-to="1"></li>
+                  <li data-target="#comparison-carousel" data-slide-to="2"></li>
+                  <li data-target="#comparison-carousel" data-slide-to="3"></li>
+                </ol>
+  
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                    <div class="row text-center">
+                        <div class="col-md-5 col-md-offset-1">
+                            <img-comparison-slider style="width: 100%;" hover="hover">
+                                <span slot="first" class="img-container">
+                                    <video id="c00" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/paper-windmill-rodynrf.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-left">RoDynRF</span>
+                                </span>
+                                <span slot="second" class="img-container">
+                                    <video id="c01" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/paper-windmill-ours.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-right">Ours</span>
+                                </span>
+                            </img-comparison-slider>
+                        </div>
+                        <div class="col-md-5">
+                            <img-comparison-slider style="width: 100%;" hover="hover">
+                                <span slot="first" class="img-container">
+                                    <video id="c02" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/paper-windmill-4dgs.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-left">4D-GS</span>
+                                </span>
+                                <span slot="second" class="img-container">
+                                    <video id="c03" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/paper-windmill-ours.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-right">Ours</span>
+                                </span>
+                            </img-comparison-slider>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row text-center">
+                        <div class="col-md-5 col-md-offset-1">
+                            <img-comparison-slider style="width: 100%;" hover="hover">
+                                <span slot="first" class="img-container">
+                                    <video id="c04" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/wheel-rodynrf.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-left">RoDynRF</span>
+                                </span>
+                                <span slot="second" class="img-container">
+                                    <video id="c05" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/wheel-ours.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-right">Ours</span>
+                                </span>
+                            </img-comparison-slider>
+                        </div>
+                        <div class="col-md-5">
+                            <img-comparison-slider style="width: 100%;" hover="hover">
+                                <span slot="first" class="img-container">
+                                    <video id="c06" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/wheel-4dgs.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-left">4D-GS</span>
+                                </span>
+                                <span slot="second" class="img-container">
+                                    <video id="c07" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/wheel-ours.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-right">Ours</span>
+                                </span>
+                            </img-comparison-slider>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row text-center">
+                        <div class="col-md-10 col-md-offset-1">
+                            <img-comparison-slider style="width: 100%;" hover="hover">
+                                <span slot="first" class="img-container">
+                                    <video id="c08" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/truck_dynibar.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-left">DynIBaR</span>
+                                </span>
+                                <span slot="second" class="img-container">
+                                    <video id="c09" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/truck_ours.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-right">Ours</span>
+                                </span>
+                            </img-comparison-slider>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="row text-center">
+                        <div class="col-md-10 col-md-offset-1">
+                            <img-comparison-slider style="width: 100%;" hover="hover">
+                                <span slot="first" class="img-container">
+                                    <video id="c10" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/skating_dynibar.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-left">DynIBaR</span>
+                                </span>
+                                <span slot="second" class="img-container">
+                                    <video id="c11" width="100%" autoplay loop muted>
+                                        <source src="assets/comparison_carousel/skating_ours.mp4" type="video/mp4"/>
+                                    </video>
+                                    <span class="bottom-right">Ours</span>
+                                </span>
+                            </img-comparison-slider>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Controls -->
+                <a class="left carousel-control" style="background-image: none; width: 5%;" href="#comparison-carousel" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" style="background-image: none; width: 5%;" href="#comparison-carousel" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Concurrent Work</h3>
+            <hr>
+            Please check out the concurrent works <a href="https://casual-fvs.github.io">casual-fvs</a> and <a href="https://www.cis.upenn.edu/~leijh/projects/mosca/">MoSca</a>, which also address fast dynamic view synthesis from causual in-the-wild video.
+            Also, see <a href="https://mightychaos.github.io/dpdy_proj/">dpdy</a>, which incorporates diffusion-based priors as additional supervision on the iphone datset.
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>BibTeX</h3>
+            <hr>
+<pre>
+@article{kappel2024d-npc,
+    title = {D-{NPC}: Dynamic Neural Point Clouds for Non-Rigid View Synthesis from Monocular Video},
+    author = {Kappel, Moritz and Hahlbohm, Florian and Scholz, Timon and Castillo, Susana and Theobalt, Christian and Eisemann, Martin and Golyanik, Vladislav and Magnor, Marcus},
+    howpublished = {arXiv preprint},
+    year = {2024}
+}</pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Acknowledgements</h3>
+            <hr>
+            We thank Jann-Ole Henningson for help with figures and proof reading.
+            <br>
+            This work was partially funded by the German Research Foundation (DFG) projects “Immersive Digital Reality” (ID 283369270) and “Real-Action VR” (ID 523421583).
+            <br>
+            <br>
+            <p class="text-justify">
+                The website template was partially adapted from <a href="https://fhahlbohm.github.io/inpc/">INPC</a> and <a href="https://jonbarron.info/zipnerf/">Zip-NeRF</a>, who
+                borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a
+                    href="https://dorverbin.github.io/refnerf">Ref-NeRF</a>.
+            </p>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
